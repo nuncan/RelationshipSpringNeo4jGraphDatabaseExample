@@ -1,23 +1,28 @@
 package me.nuncan.hiringmodel.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Generated;
-import lombok.RequiredArgsConstructor;
 import org.neo4j.ogm.annotation.*;
 
 @Data
 @Generated
 @NodeEntity
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class User {
 
 	@Id
 	@GeneratedValue
 	Long Id;
 
-	@Property
+	@Relationship
 	String name;
 
-	@Relationship
+	@EndNode
+	@Relationship(value = "customer")
 	Customer customer;
+
+	@StartNode
+	@Relationship(value = "friendship")
+	User user;
 }
