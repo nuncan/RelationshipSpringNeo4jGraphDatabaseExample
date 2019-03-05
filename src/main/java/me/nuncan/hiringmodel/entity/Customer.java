@@ -9,7 +9,7 @@ import org.neo4j.ogm.annotation.*;
 @Generated
 @NodeEntity
 @RequiredArgsConstructor
-public class User {
+public class Customer {
 
 	@Id
 	@GeneratedValue
@@ -19,5 +19,5 @@ public class User {
 	String name;
 
 	@Relationship
-	Customer customer;
+	User user;
 }

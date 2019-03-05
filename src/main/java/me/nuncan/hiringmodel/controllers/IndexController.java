@@ -1,32 +1,31 @@
 package me.nuncan.hiringmodel.controllers;
 
+import lombok.extern.slf4j.Slf4j;
+import me.nuncan.hiringmodel.datasources.Neo4j.UserService;
 import me.nuncan.hiringmodel.entity.User;
-import me.nuncan.hiringmodel.service.UserService;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-import org.springframework.data.rest.core.annotation.RestResource;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
+@Slf4j
 @RestController
-@RepositoryRestResource
-public class IndexController {
+@RequestMapping("/db")
+class IndexController {
 
-    @Resource
-    UserService userService;
+	@Resource
+	UserService userService;
 
-    @GetMapping
-    public String getIndex() {
-        return "index";
-    }
 
-    @GetMapping
-    public String createUser(@PathVariable String name) {
-        return userService.save(new User(name)).toString();
-    }
+	@GetMapping(path = {"/find/{name}"})
+	User findAllByName(@RequestParam String name) {
+		log.info("Returning all users and customers on index hit {}", name);
+		return userService.findAllByName(name);
+
+	}
+
+
 
 }
