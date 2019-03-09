@@ -146,85 +146,8 @@
             <artifactId>spring-session-data-redis</artifactId>
         </dependency>
     </dependencies>
-    <profiles>
-        <profile>
-            <build>
-                <defaultGoal>pdf:pdf</defaultGoal>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-pdf-plugin</artifactId>
-                        <version>${maven-pdf-plugin.version}</version>
-                    </plugin>
-                </plugins>
-            </build>
-            <id>Reporting</id>
-            <reporting>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-project-info-reports-plugin</artifactId>
-                        <version>${maven-project-info-reports-plugin.version}</version>
-                        <reportSets>
-                            <reportSet>
-                                <reports>
-                                    <report>cim</report>
-                                    <report>dependency-convergence</report>
-                                    <report>dependency-management</report>
-                                    <report>issue-tracking</report>
-                                    <report>license</report>
-                                    <report>mailing-list</report>
-                                    <report>plugin-management</report>
-                                    <report>plugins</report>
-                                    <report>project-team</report>
-                                    <report>scm</report>
-                                    <report>summary</report>
-                                </reports>
-                            </reportSet>
-                        </reportSets>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>taglist-maven-plugin</artifactId>
-                        <version>${taglist-maven-plugin.version}</version>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>versions-maven-plugin</artifactId>
-                        <version>${versions-maven-plugin.version}</version>
-                        <reportSets>
-                            <reportSet>
-                                <reports>
-                                    <report>dependency-updates-report</report>
-                                    <report>plugin-updates-report</report>
-                                    <report>property-updates-report</report>
-                                </reports>
-                            </reportSet>
-                        </reportSets>
-                    </plugin>
-                </plugins>
-            </reporting>
-        </profile>
-    </profiles>
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-pmd-plugin</artifactId>
-                <version>${maven-pmd-plugin.version}</version>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-                <version>${build-helper-maven-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>released-version</goal>
-                        </goals>
-                        <id>released-version</id>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>jdepend-maven-plugin</artifactId>
@@ -270,5 +193,5 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    <description>Brb</description>
+    <description>A Skeleton Spring Boot Project For Hands On Spring Data/Neo4j Experience</description>
 </project>
