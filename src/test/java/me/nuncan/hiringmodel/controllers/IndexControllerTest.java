@@ -1,6 +1,6 @@
 package me.nuncan.hiringmodel.controllers;
 
-class IndexControllerTest extends IndexController {
+class IndexControllerTest {
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
