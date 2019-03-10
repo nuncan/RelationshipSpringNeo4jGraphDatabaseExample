@@ -1,4 +1,4 @@
-package me.nuncan.hiringmodel.datasources;
+package me.nuncan.hiringmodel.datasources.entity;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +16,7 @@ import javax.persistence.Id;
 @Accessors
 @RequiredArgsConstructor
 @Table(value = "Roles")
-class Roles
+public class Roles
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

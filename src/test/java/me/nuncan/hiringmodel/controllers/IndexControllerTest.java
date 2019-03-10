@@ -1,17 +1,8 @@
 package me.nuncan.hiringmodel.controllers;
 
+import org.jetbrains.annotations.Nullable;
+
+@Nullable
 class IndexControllerTest {
 
-    @org.junit.jupiter.api.BeforeEach
-    void setUp() {
-    }
-
-    @org.junit.jupiter.api.AfterEach
-    void tearDown() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void getByName() {
-
-    }
 }
