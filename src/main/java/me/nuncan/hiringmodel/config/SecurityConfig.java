@@ -1,3 +1,4 @@
+/*
 package me.nuncan.hiringmodel.config;
 
 import org.jetbrains.annotations.NotNull;
@@ -9,7 +10,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
+*/
+/*
     @Override
     protected void configure(@NotNull HttpSecurity http) throws Exception {
         http
@@ -20,4 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     }
-}
+
+ *//*
+
+}*/
