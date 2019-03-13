@@ -2,42 +2,59 @@ package me.nuncan.hiringmodel.entity;
 
 import lombok.Data;
 import lombok.Generated;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.experimental.Accessors;
-import org.jetbrains.annotations.Contract;
 import org.neo4j.ogm.annotation.*;
 
-import java.util.List;
+import java.util.Collection;
+import java.util.Objects;
 
-@RelationshipEntity
-public class Roles {
+@Data
+@Generated
+@RelationshipEntity(type = "Related")
+public class Roles extends User {
 
     @Id
-    Long Id;
+    @GeneratedValue
+    private Long Id;
 
-    @Relationship(value = "Name")
-    String Name;
+    private Collection<String> rolesCollection;
 
-    @Relationship(value = "Role")
-    Roles roles;
+    @StartNode
+    private User user;
 
-    @Relationship(value = "User")
-    User user;
+    @EndNode
+    private Friend friend;
 
-    @Relationship(value = "Friend")
-    Friend friend;
+    private Ser<>
 
-    @Relationship(value = "Friendships")
-    List<Friend> friends;
+    public Long getId() {
+        return Id;
+    }
 
-    @Relationship(value = "RolesList")
-    List<Roles> User_Roles;
+    public void setId(Long id) {
+        Id = id;
+    }
 
-    @Relationship(value = "Users")
-    List<User> userList;
+    public Collection<String> getRolesCollection() {
+        return rolesCollection;
+    }
 
-    public Roles(String name) {
-        this.Name = name;
+    public void setRolesCollection(Collection<String> rolesCollection) {
+        this.rolesCollection = rolesCollection;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Friend getFriend() {
+        return friend;
+    }
+
+    public void setFriend(Friend friend) {
+        this.friend = friend;
     }
 }

@@ -1,3 +1,4 @@
+/*
 package me.nuncan.hiringmodel.config;
 
 import lombok.extern.slf4j.Slf4j;
@@ -21,4 +22,4 @@ public class SessionConfig extends AbstractHttpSessionApplicationInitializer {
         log.debug("Session Returned");
         return new LettuceExceptionConverter();
     }
-}
+}*/

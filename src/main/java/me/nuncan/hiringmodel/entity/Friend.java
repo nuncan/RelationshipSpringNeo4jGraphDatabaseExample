@@ -1,50 +1,76 @@
 package me.nuncan.hiringmodel.entity;
 
 
-import lombok.RequiredArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Generated;
 import org.neo4j.ogm.annotation.*;
 
-import java.util.LinkedHashMap;
-import java.util.List;
+import java.util.Collection;
+import java.util.Objects;
 
-@RelationshipEntity
-public class Friend {
+@Data
+@NodeEntity
+@Generated
+public class Friend extends User{
 
     @Id
-    Long Id;
+    @GeneratedValue
+    private Long Id;
 
-    @Relationship(value = "RolesList")
-    List<Roles> rolesList;
+    @Transient
+    private String name;
 
-    @Relationship(value = "Name")
-    String name;
+    private String jobTitle;
 
-    @Relationship(value = "Friendships")
-    List<Friend> friends;
+    @Relationship(type = "Related")
+    private Collection<User> ConnectedUsers;
 
-    @Relationship(value = "Friend")
-    Friend friend;
-
-    @Relationship(value = "User")
-    User user;
-
-
-    @Relationship(value = "Users")
-    LinkedHashMap<User, Friend> userList;
-
-    @Relationship(value = "Role")
-    Roles roles;
-
-    public Friend(String name) {
-        this.name = name;
+    public Friend() {
     }
 
-    public void addFriend(User arg) {
-        this.user = arg;
-        this.userList = new LinkedHashMap<>();
+    public Friend(String name, String jobTitle) {
+        this.name = name;
+        this.jobTitle = jobTitle;
+    }
+
+    public Friend(Long id, String name, String jobTitle, Collection<User> connectedUsers) {
+        Id = id;
+        this.name = name;
+        this.jobTitle = jobTitle;
+        ConnectedUsers = connectedUsers;
+    }
+
+    public Long getId() {
+        return Id;
+    }
+
+    public void setId(Long id) {
+        Id = id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getJobTitle() {
+        return jobTitle;
+    }
+
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
+    }
+
+    public Collection<User> getConnectedUsers() {
+        return ConnectedUsers;
+    }
+
+    public void setConnectedUsers(Collection<User> connectedUsers) {
+        ConnectedUsers = connectedUsers;
+    }
+
 }
