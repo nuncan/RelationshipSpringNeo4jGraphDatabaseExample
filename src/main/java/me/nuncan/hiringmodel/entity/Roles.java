@@ -1,20 +1,22 @@
 package me.nuncan.hiringmodel.entity;
 
 import lombok.Data;
-import lombok.Generated;
+import org.neo4j.driver.internal.value.DateTimeValue;
 import org.neo4j.ogm.annotation.*;
+import org.neo4j.ogm.annotation.typeconversion.DateLong;
 
 import java.util.Collection;
-import java.util.Objects;
 
 @Data
-@Generated
 @RelationshipEntity(type = "Related")
 public class Roles extends User {
 
     @Id
     @GeneratedValue
     private Long Id;
+
+    @DateLong
+    private DateTimeValue dateTimeValue;
 
     private Collection<String> rolesCollection;
 
@@ -24,7 +26,8 @@ public class Roles extends User {
     @EndNode
     private Friend friend;
 
-    private Ser<>
+    public Roles() {
+    }
 
     public Long getId() {
         return Id;
@@ -32,6 +35,14 @@ public class Roles extends User {
 
     public void setId(Long id) {
         Id = id;
+    }
+
+    public DateTimeValue getDateTimeValue() {
+        return dateTimeValue;
+    }
+
+    public void setDateTimeValue(DateTimeValue dateTimeValue) {
+        this.dateTimeValue = dateTimeValue;
     }
 
     public Collection<String> getRolesCollection() {

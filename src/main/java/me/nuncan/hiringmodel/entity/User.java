@@ -1,12 +1,12 @@
 package me.nuncan.hiringmodel.entity;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.Generated;
+import org.neo4j.driver.internal.value.DateTimeValue;
 import org.neo4j.ogm.annotation.*;
+import org.neo4j.ogm.annotation.typeconversion.DateLong;
 
 import java.util.Collection;
-import java.util.Objects;
 
 @Data
 @NodeEntity
@@ -20,6 +20,10 @@ public class User {
     @Transient
     private String name;
 
+
+    @DateLong
+    private DateTimeValue dateTimeValue;
+
     private String jobTitle;
 
     @Relationship(type = "Related")
@@ -28,18 +32,6 @@ public class User {
 
     public User() {
 
-    }
-
-    public User(String name, String jobTitle) {
-        this.name = name;
-        this.jobTitle = jobTitle;
-    }
-
-    public User(Long id, String name, String jobTitle, Collection<Roles> userRoles) {
-        Id = id;
-        this.name = name;
-        this.jobTitle = jobTitle;
-        this.userRoles = userRoles;
     }
 
     public Long getId() {
@@ -58,6 +50,14 @@ public class User {
         this.name = name;
     }
 
+    public DateTimeValue getDateTimeValue() {
+        return dateTimeValue;
+    }
+
+    public void setDateTimeValue(DateTimeValue dateTimeValue) {
+        this.dateTimeValue = dateTimeValue;
+    }
+
     public String getJobTitle() {
         return jobTitle;
     }
@@ -73,5 +73,4 @@ public class User {
     public void setUserRoles(Collection<Roles> userRoles) {
         this.userRoles = userRoles;
     }
-
 }

@@ -37,15 +37,15 @@ class AppStartupRunnerTest extends ModelingHiringApplication {
         setup()
 
 
-        User userNick = new User()
+        final User userNick = new User()
 
-        Friend friendChris = new Friend()
-        Friend friendJohn = new Friend()
+        final Friend friendChris = new Friend()
+        final Friend friendJohn = new Friend()
 
 
-        Roles family = new Roles()
-        Roles brother = new Roles()
-        Roles engineer = new Roles()
+        final Roles family = new Roles()
+        final Roles brother = new Roles()
+        final Roles engineer = new Roles()
 
 
         userNick.setName("Nick")
@@ -73,7 +73,7 @@ class AppStartupRunnerTest extends ModelingHiringApplication {
         engineer.setFriend(friendJohn)
 
 
-        Stack<Roles> rolesColl = new Stack<>()
+        final Stack<Roles> rolesColl = new Stack<>()
         rolesColl.push(family)
         rolesColl.push(engineer)
         rolesColl.push(brother)
@@ -82,7 +82,7 @@ class AppStartupRunnerTest extends ModelingHiringApplication {
 
         userRepoNeo4j.save(userNick)
 
-        def results = userRepoNeo4j.findAllByJobTitle("Engineer")
+        final def results = userRepoNeo4j.findAllByJobTitle("Engineer")
         .toString().normalize()
 
         println(results)

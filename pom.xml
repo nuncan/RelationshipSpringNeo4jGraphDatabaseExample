@@ -13,6 +13,8 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>ModelingHiring</name>
     <properties>
+        <source>11</source>
+        <target>11</target>
         <build-helper-maven-plugin.version>3.0.0</build-helper-maven-plugin.version>
         <dependency-check-maven.version>5.0.0-M1</dependency-check-maven.version>
         <jdepend-maven-plugin.version>2.0</jdepend-maven-plugin.version>
@@ -170,17 +172,6 @@
             <artifactId>annotations</artifactId>
             <version>17.0.0</version>
             <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>2.9.8</version>
-        </dependency>
-        <dependency>
-            <groupId>org.spockframework</groupId>
-            <artifactId>spock-core</artifactId>
-            <version>RELEASE</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
     <build>
