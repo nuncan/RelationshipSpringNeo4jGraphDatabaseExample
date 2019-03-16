@@ -10,12 +10,12 @@ import java.util.Collection;
 import java.util.Optional;
 
 @Repository
-public interface UserRepoNeo4j extends Neo4jRepository<User, Long> {
+public interface UserRepoNeo4j extends Neo4jRepository<User, Integer>{
 
 
     Optional<User> findById(@Param("Id") Long Id);
 
-    @Query("MATCH (n:User) WHERE n.jobTitle =~ ('(?i).*'+{jobTitle}+'.*') RETURN n")
+    @Query(value="MATCH (n:User) WHERE n.jobTitle =~('(?i).*'+{jobTitle}+'.*') RETURN n")
     Collection<User> findAllByJobTitle(@Param("jobTitle") String name);
 
 }

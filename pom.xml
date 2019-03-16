@@ -9,9 +9,9 @@
         <relativePath/>
     </parent>
     <groupId>me.nuncan</groupId>
-    <artifactId>ModelingHiring</artifactId>
+    <artifactId>RelationshipSpringNeo4jGraphDatabaseExample</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>ModelingHiring</name>
+    <name>RelationshipSpringNeo4jGraphDatabaseExample</name>
     <properties>
         <source>11</source>
         <target>11</target>
@@ -31,6 +31,14 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
     <dependencies>
+
+        <!--
+
+            10x as many dependencies as required for this example..
+
+            This is a shell of something else Im working on
+
+        -->
         <dependency>
             <groupId>io.projectreactor</groupId>
             <artifactId>reactor-test</artifactId>
@@ -176,28 +184,6 @@
     </dependencies>
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>jdepend-maven-plugin</artifactId>
-                <version>${jdepend-maven-plugin.version}</version>
-            </plugin>
-            <plugin>
-                <groupId>org.owasp</groupId>
-                <artifactId>dependency-check-maven</artifactId>
-                <version>${dependency-check-maven.version}</version>
-                <configuration>
-                    <skipProvidedScope>true</skipProvidedScope>
-                    <skipRuntimeScope>true</skipRuntimeScope>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>check</goal>
-                            <goal>update-only</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
